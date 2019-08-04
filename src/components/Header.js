@@ -12,7 +12,7 @@ function Header() {
           </a>
         </div>
         <ul className="nav navbar-nav">
-          <li><Link to={'/second'} className="nav-link"> Halaman 2 </Link></li>
+          <li><Link to={'/second'} className="nav-link"> Table </Link></li>
           <li><Link to={'/third'} className="nav-link"> Halaman 3 </Link></li>
         </ul>
       </div>

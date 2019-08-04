@@ -17,25 +17,27 @@ function App() {
   return (
     <div id="root">
       <Header />
-      {/* Ambil route dari route.js kemudian melakukan perulangan */}
-      {routes.map((route, i) => {
-        // <Route {...route} /> // langsung menampilkan route tanpa props
-        if (route.path === '/') {
-          return <Route
-            key={i}
-            exact
-            path={route.path}
-            render={(props) => <route.component {...props} profile={profile} desc={desc} />} 
-          />
-        } else {
-          return <Route
-            key={i}
-            path={route.path}
-            render={(props) => <route.component {...props} profile={profile} desc={desc} />} 
-          />
-        }
-      })}
-      {/* <Main profile={profile} desc={desc} /> //ini yang sebelumnya tanpa route */}
+      <div className="container">
+        {/* Ambil route dari route.js kemudian melakukan perulangan */}
+        {routes.map((route, i) => {
+          // <Route {...route} /> // langsung menampilkan route tanpa props
+          if (route.path === '/') {
+            return <Route
+              key={i}
+              exact
+              path={route.path}
+              render={(props) => <route.component {...props} profile={profile} desc={desc} />} 
+            />
+          } else {
+            return <Route
+              key={i}
+              path={route.path}
+              render={(props) => <route.component {...props} profile={profile} desc={desc} />} 
+            />
+          }
+        })}
+        {/* <Main profile={profile} desc={desc} /> //ini yang sebelumnya tanpa route */}
+      </div>
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
