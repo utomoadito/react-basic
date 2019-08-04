@@ -1,0 +1,5 @@
+Tutorial:
+1. https://pusher.com/tutorials/instagram-clone-part-1
+2. https://www.robinwieruch.de/react-function-component/
+3. https://medium.com/javascript-in-plain-english/i-created-the-exact-same-app-in-react-and-vue-here-are-the-differences-e9a1ae8077fd
+4. https://scrimba.com/g/glearnreact
