@@ -11,7 +11,7 @@ function Header() {
             Instagram
           </a>
         </div>
-        <ul className="nav navbar-nav">
+        <ul className="nav nav-pills">
           <li><Link to={'/second'} className="nav-link"> Table </Link></li>
           <li><Link to={'/third'} className="nav-link"> Halaman 3 </Link></li>
         </ul>

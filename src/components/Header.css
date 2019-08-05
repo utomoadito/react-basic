@@ -11,9 +11,10 @@ i.Nav {
 }
 .Nav-menus {
   display: flex;
+  justify-content: space-between;
   flex-direction: row;
   height: 77px;
-  width: 70%;
+  width: 80%;
   margin: 0 auto;
   padding: 26px 40px;
 }

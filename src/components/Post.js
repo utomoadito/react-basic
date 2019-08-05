@@ -40,7 +40,7 @@ class Post extends React.Component {
         <div className="Post-caption">
           <strong>{ profile.name }</strong> Moving the community! { this.state.model }
         </div>
-        <input type="text" onKeyUp={this.onType.bind(this)} />
+        <input type="text" onChange={this.onType.bind(this)} />
       </article>
     ) 
   }
