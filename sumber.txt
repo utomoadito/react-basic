@@ -6,3 +6,6 @@ Tutorial:
 
 buat table:
 1. https://dev.to/abdulbasit313/an-easy-way-to-create-a-customize-dynamic-table-in-react-js-3igg
+
+table search filter
+1. https://dev.to/iam_timsmith/lets-build-a-search-bar-in-react-120j

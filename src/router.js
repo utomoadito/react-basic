@@ -5,14 +5,14 @@ import Third from './views/Third'
 export const routes = [
   {
     component: Main,
-    path: '/',
+    path: '/'
   },
   {
     component: Second,
-    path: '/second',
+    path: '/second'
   },
   {
     component: Third,
-    path: '/third',
+    path: '/third'
   }
 ]

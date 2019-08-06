@@ -2,7 +2,7 @@ import React from 'react'
 import Post from '../components/Post'
 import '../App.css'
 
-function Main({profile, desc}) {
+function Main({ profile, desc }) {
   const personal = profile
   console.log(personal)
 

@@ -22,18 +22,26 @@ function App() {
         {routes.map((route, i) => {
           // <Route {...route} /> // langsung menampilkan route tanpa props
           if (route.path === '/') {
-            return <Route
-              key={i}
-              exact
-              path={route.path}
-              render={(props) => <route.component {...props} profile={profile} desc={desc} />} 
-            />
+            return (
+              <Route
+                key={i}
+                exact
+                path={route.path}
+                render={props => (
+                  <route.component {...props} profile={profile} desc={desc} />
+                )}
+              />
+            )
           } else {
-            return <Route
-              key={i}
-              path={route.path}
-              render={(props) => <route.component {...props} profile={profile} desc={desc} />} 
-            />
+            return (
+              <Route
+                key={i}
+                path={route.path}
+                render={props => (
+                  <route.component {...props} profile={profile} desc={desc} />
+                )}
+              />
+            )
           }
         })}
         {/* <Main profile={profile} desc={desc} /> //ini yang sebelumnya tanpa route */}
@@ -42,7 +50,7 @@ function App() {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            { profile.name }, Edit <code>src/App.js</code> and save to reload. { desc.job }
+            {profile.name}, Edit <code>src/App.js</code> and save to reload. {desc.job}
           </p>
           <a
             className="App-link"

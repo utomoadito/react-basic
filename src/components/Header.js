@@ -12,12 +12,20 @@ function Header() {
           </a>
         </div>
         <ul className="nav nav-pills">
-          <li><Link to={'/second'} className="nav-link"> Table </Link></li>
-          <li><Link to={'/third'} className="nav-link"> Halaman 3 </Link></li>
+          <li>
+            <Link to={'/second'} className="nav-link">
+              Table
+            </Link>
+          </li>
+          <li>
+            <Link to={'/third'} className="nav-link">
+              Halaman 3
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>
-  ) 
+  )
 }
 export default Header
 
@@ -35,6 +43,6 @@ export default Header
 //         </div>
 //       </nav>
 //     )
-//   } 
+//   }
 // }
 // export default Header
