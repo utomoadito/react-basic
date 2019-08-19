@@ -9,3 +9,11 @@ buat table:
 
 table search filter
 1. https://dev.to/iam_timsmith/lets-build-a-search-bar-in-react-120j
+
+buat mock api (api buatan):
+1. https://medium.com/backticks-tildes/building-a-mock-rest-api-with-json-server-812ed3e6036a
+2. https://www.freecodecamp.org/news/rapid-development-via-mock-apis-e559087be066/
+3. https://www.techiediaries.com/fake-api-jwt-json-server/
+
+restart server node otomatis jika terjadi perubahan code
+1. https://codeforgeek.com/update-code-without-restarting-node-server/
