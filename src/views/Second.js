@@ -19,16 +19,20 @@ class Second extends React.Component {
         { name: 'Ahmad', job: 'Freelance', address: 'Denpasar' },
         { name: 'Adi', job: 'PNS', address: 'Bandung' },
         { name: 'Bambang', job: 'Swasta', address: 'Surabaya' }
+      ],
+      header: [
+        { key: 'name', label: 'Name' },
+        { key: 'job', label: 'Job' },
+        { key: 'address', label: 'Address' }
       ]
     }
   }
 
   // Methods Event
   inputModel(model, event) {
-    // cek jika "model" memiliki ".", yang artinya "model" tsb memiliki anak didalamnya
+    // check if "model" has ".", which is that "model" has child inside
     if (model.includes('.')) {
       let childObject = model.split('.')
-      console.log(childObject)
       this.setState({
         [childObject[0]]: Object.assign({}, this.state[childObject[0]], {
           [childObject[1]]: event.target.value
@@ -48,24 +52,35 @@ class Second extends React.Component {
     })
   }
   editItem(index) {
-    let getData = this.state.data[index]
+    const getData = this.state.data[index]
     this.setState({
       model: getData,
       editedIndex: index,
       modal: !this.state.modal
     })
   }
-  saveItem() {
-    let model = this.state.model
-    let data = this.state.data
-    if (this.state.editedIndex > -1) {
-      Object.assign(data[this.state.editedIndex], model)
-    } else {
-      data.push(model)
+  deleteItem(index) {
+    if (window.confirm('Are you sure delete this data?')) {
+      let data = this.state.data
+      data.splice(index, 1)
+      this.setState({
+        data: data
+      })
     }
-    this.setState({
-      data: data
-    })
+  }
+  saveItem() {
+    if (window.confirm('Are you sure save this data?')) {
+      const model = this.state.model
+      const data = this.state.data
+      if (this.state.editedIndex > -1) {
+        Object.assign(data[this.state.editedIndex], model)
+      } else {
+        data.push(model)
+      }
+      this.setState({
+        data: data
+      })
+    }
     this.onModal()
   }
 
@@ -83,42 +98,43 @@ class Second extends React.Component {
   tableRow() {
     if (this.filterData().length > 0) {
       return this.filterData().map((data, index) => {
-        // Cara 2
-        const { name, job, address } = data //otomatis langsung identifikasi nama key dari data
+        const htmlTableData = this.state.header.map((head, hIndex) => {
+          return (
+            <td key={hIndex}>{data[head.key]}</td>
+          )
+        })
         return (
           <tr key={index}>
             <td>{index + 1}</td>
-            <td>{name}</td>
-            <td>{job}</td>
-            <td>{address}</td>
+            {htmlTableData}
             <td>
-              <button
-                type="button"
-                className="btn btn-success"
-                data-toggle="modal"
-                data-target="#modalItem"
-                data-backdrop="static"
-                onClick={this.editItem.bind(this, index)}
-              >
-                Edit
-              </button>
+              <div className="btn-toolbar">
+                <button
+                  type="button"
+                  className="btn btn-success"
+                  data-toggle="modal"
+                  data-target="#modalItem"
+                  data-backdrop="static"
+                  onClick={this.editItem.bind(this, index)}
+                >
+                  Edit
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-danger"
+                  onClick={this.deleteItem.bind(this, index)}
+                >
+                  Delete
+                </button>
+              </div>
             </td>
           </tr>
         )
-        // // Cara 1
-        // return (
-        //   <tr key={index}>
-        //     <td>{index+1}</td>
-        //     <td>{data.name}</td>
-        //     <td>{data.job}</td>
-        //     <td>{data.address}</td>
-        //   </tr>
-        // )
       })
     } else {
       return (
         <tr>
-          <td colSpan="4" className="text-center">
+          <td colSpan="5" className="text-center">
             <b>Data Not Found</b>
           </td>
         </tr>
@@ -126,12 +142,12 @@ class Second extends React.Component {
     }
   }
   tableHeader() {
-    // Dynamic Header Table berdasarkan jumlah data dari table
-    const headerTable = Object.keys(this.state.data[0]) //ambil nama key
-    return headerTable.map((key, index) => {
+    /* const headerTable = Object.keys(this.state.data[0]) //ambil nama key */
+    const headerTable = this.state.header
+    return headerTable.map((val, index) => {
       return (
         <th key={index} style={capitalize}>
-          {key}
+          {val.label}
         </th>
       )
     })
@@ -173,9 +189,6 @@ class Second extends React.Component {
                   <th>No</th>
                   {this.tableHeader()}
                   <th>Action</th>
-                  {/* <th>Nama</th>
-                  <th>Pekerjaan</th>
-                  <th>Alamat</th> */}
                 </tr>
               </thead>
               <tbody>{this.tableRow()}</tbody>
