@@ -16,7 +16,7 @@ i.Nav {
   height: 77px;
   width: 80%;
   margin: 0 auto;
-  padding: 26px 40px;
+  padding: 16px 40px;
 }
 .Nav-brand-logo {
   display: block;
@@ -27,4 +27,16 @@ i.Nav {
   height: 35px;
   width: 176px;
   text-indent: -1000%
+}
+.navbar-toggle {
+  float: left;
+  margin-top: unset;
+  right: 35%;
+}
+
+@media screen and (max-width: 600px) {
+  .Nav-menus {
+    display: grid;
+    height: auto;
+  }
 }
