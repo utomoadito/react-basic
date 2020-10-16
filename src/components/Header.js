@@ -4,25 +4,37 @@ import './Header.css'
 
 function Header() {
   return (
-    <nav className="navbar navbar-default">
+    <nav className="navbar navbar-default navbar-fixed-top">
       <div className="Nav-menus">
-        <div className="Nav-brand">
-          <a className="Nav-brand-logo" href={'/'}>
-            Instagram
-          </a>
+        <div className="navbar-header">
+          <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span className="sr-only">Toggle navigation</span>
+            <span className="icon-bar"></span>
+            <span className="icon-bar"></span>
+            <span className="icon-bar"></span>
+          </button>
+          <div className="Nav-brand">
+            <a className="Nav-brand-logo" href={'/'}>
+              Instagram
+            </a>
+          </div>
         </div>
-        <ul className="nav nav-pills">
-          <li>
-            <Link to={'/second'} className="nav-link">
-              Table
-            </Link>
-          </li>
-          <li>
-            <Link to={'/third'} className="nav-link">
-              Halaman 3
-            </Link>
-          </li>
-        </ul>
+        <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <div className="navbar-nav">
+            <ul className="nav nav-justified">
+              <li>
+                <Link to={'/second'} className="nav-link">
+                  Table
+                </Link>
+              </li>
+              <li>
+                <Link to={'/third'} className="nav-link">
+                  Page3
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </nav>
   )
