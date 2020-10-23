@@ -6,7 +6,8 @@ class Post extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      model: ''
+      model: '',
+      profile: this.props.profile
     }
   }
 
@@ -18,7 +19,7 @@ class Post extends React.Component {
   }
 
   render() {
-    const profile = this.props.profile
+    const profile = this.state.profile
 
     return (
       <article className="Post">

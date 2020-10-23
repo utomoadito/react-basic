@@ -1,5 +1,6 @@
 import React from 'react'
 import '../App.css'
+import Table from '../components/Table'
 
 // Styles
 const capitalize = {
@@ -10,6 +11,7 @@ class Second extends React.Component {
   // eslint-disable-next-line
   constructor(props) {
     super(props)
+    this.handleEdit = this.handleEdit.bind(this)
     this.state = {
       search: '',
       modal: false,
@@ -24,7 +26,8 @@ class Second extends React.Component {
         { key: 'name', label: 'Name' },
         { key: 'job', label: 'Job' },
         { key: 'address', label: 'Address' }
-      ]
+      ],
+      action: ['edit', 'delete']
     }
   }
 
@@ -51,8 +54,12 @@ class Second extends React.Component {
       model: {}
     })
   }
+  handleEdit(val) {
+    this.editItem(val)
+  } 
   editItem(index) {
     const getData = this.state.data[index]
+    console.log(getData)
     this.setState({
       model: getData,
       editedIndex: index,
@@ -194,6 +201,18 @@ class Second extends React.Component {
               <tbody>{this.tableRow()}</tbody>
             </table>
           </div>
+        </div>
+        <div className="col-md-12">
+          <Table 
+            data={this.state.data}
+            header={this.state.header}
+            search={this.state.search}
+            itemIndex={this.state.editedIndex}
+            action={this.state.action}
+            onEditItem={this.handleEdit}
+          >
+            <h1 className="text-center">Table Data With Table Component</h1>
+          </Table>
         </div>
         <div className="modal fade" role="dialog" id="modalItem">
           <div className="modal-dialog">
