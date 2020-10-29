@@ -11,7 +11,7 @@ class Second extends React.Component {
   // eslint-disable-next-line
   constructor(props) {
     super(props)
-    this.handleEdit = this.handleEdit.bind(this)
+    this.handleAction = this.handleAction.bind(this)
     this.state = {
       search: '',
       modal: false,
@@ -54,12 +54,15 @@ class Second extends React.Component {
       model: {}
     })
   }
-  handleEdit(val) {
-    this.editItem(val)
+  handleAction(val, type) {
+    if (type === 'edit') {
+      this.editItem(val)
+    } else if (type === 'delete') {
+      this.deleteItem(val)
+    }
   } 
   editItem(index) {
     const getData = this.state.data[index]
-    console.log(getData)
     this.setState({
       model: getData,
       editedIndex: index,
@@ -209,7 +212,7 @@ class Second extends React.Component {
             search={this.state.search}
             itemIndex={this.state.editedIndex}
             action={this.state.action}
-            onEditItem={this.handleEdit}
+            onHandleAction={this.handleAction}
           >
             <h1 className="text-center">Table Data With Table Component</h1>
           </Table>

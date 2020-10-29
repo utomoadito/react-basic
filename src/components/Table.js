@@ -37,18 +37,28 @@ class Table extends React.Component {
           let actionButton = []
           if (act === 'edit') {
             actionButton.push(
-              <div key={actIndex}>
-                <button
-                  type="button"
-                  className="btn btn-success"
-                  data-toggle="modal"
-                  data-target="#modalItem"
-                  data-backdrop="static"
-                  onClick={this.props.onEditItem.bind(this, index)}
-                >
-                  Edit
-                </button>
-              </div>
+              <button
+                key={actIndex}
+                type="button"
+                className="btn btn-success"
+                data-toggle="modal"
+                data-target="#modalItem"
+                data-backdrop="static"
+                onClick={this.props.onHandleAction.bind(this, index, act)}
+              >
+                Edit
+              </button>
+            )
+          } else if (act === 'delete') {
+            actionButton.push(
+              <button
+                key={actIndex}
+                type="button"
+                className="btn btn-danger"
+                onClick={this.props.onHandleAction.bind(this, index, act)}
+              >
+                Delete
+              </button>
             )
           }
           return actionButton
