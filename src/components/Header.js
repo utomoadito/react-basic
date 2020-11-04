@@ -29,7 +29,7 @@ function Header() {
               </li>
               <li>
                 <Link to={'/third'} className="nav-link">
-                  Page3
+                  Movie
                 </Link>
               </li>
             </ul>
